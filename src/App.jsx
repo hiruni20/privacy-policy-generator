@@ -1,6 +1,9 @@
 import React from 'react'
 import Navbar from './components/Navbar/Navbar'
-import { BrowserRouter as Router, Routes} from 'react-router-dom'
+//import Numbering from './components/Numbering'
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
+import Step1 from './components/pages/Step1/Step1'
+
 
 
 function App() {
@@ -8,8 +11,9 @@ function App() {
     <>
       <Router>
         <Navbar/>
+        
         <Routes>
-
+        <Route path='/' element={<Step1/>}/>
         </Routes>
       </Router>
     </>
