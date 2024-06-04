@@ -29,6 +29,7 @@ function Step2() {
                     <div className='formc'>
                         <form>
                             <div className='formdata'>
+                                
                                 <label htmlFor="appName" className='label' style={{ fontWeight: '600' }}>What is your app name?</label>
                                 <input
                                     className='input-form'
