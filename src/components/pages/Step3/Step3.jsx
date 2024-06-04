@@ -5,6 +5,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { BsArrowLeftShort } from "react-icons/bs";
 import { BsArrowRightShort } from "react-icons/bs";
+import { Link } from 'react-router-dom';
 
 function Step3() {
     const [email, setEmail] = useState(false);
@@ -60,9 +61,12 @@ function Step3() {
                         </div>
                     </form>
                     <div className='btn-btn2'>
+                    <Link to={'/step2'} className='nav' >
                         <button style={{ backgroundColor: '#fff', color: '#303030' }}>
                             <div className='arrow1'><BsArrowLeftShort /></div>Previous step
                         </button>
+                        </Link>
+                        
                         <button onClick={handleNextStep}>Next step
                             <div className='arrow'><BsArrowRightShort /></div>
                         </button>
