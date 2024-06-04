@@ -1,11 +1,11 @@
 .maincontainer {
     justify-content: center;
     align-items: center;
-    width: 100%;
+    width: 99%;
     height: auto;
     position: absolute;
     
-    padding: 2rem;
+    
     
   }
   .container{
@@ -85,17 +85,23 @@
   color: rgb(5, 171, 146) ;  
   transform: scale(1.1); 
 }
+.fweb:focus .webimg,
+.fweb:focus h4
+ {
+    
+  color: rgb(5, 171, 146) ;  
+  transform: scale(1.1); 
+}
 
 .fweb:hover h5{
     transform: scale(1.1);
 }
-.fweb.clicked h5{
-    transform: scale(1.1);
-}
+
 .text h4, .text h5 {
   margin: 0;
   transition: all 0.3s ease; /* Smooth transition */
 }
+
   .fapp{
     display: flex;
     width: 100%;
@@ -114,7 +120,7 @@
     
   }
   
-  .fweb:hover{
+  .fapp:hover{
     cursor: pointer;
     border-color: rgb(5, 171, 146);
   }
@@ -140,7 +146,7 @@
     
   }
   .btn-btn button{
-    width: 150px;
+    width: 200px;
     height: 50px;
     display: flex;    
     align-items:center;
@@ -159,4 +165,7 @@
     margin-top: 10px;
 
     
+  }
+  .nav{
+    text-decoration: none;
   }

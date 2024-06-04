@@ -5,6 +5,7 @@ import images from '../../../constants/images';
 import { BsWindow } from "react-icons/bs";
 import { PiDevicesLight } from "react-icons/pi";
 import { HiArrowLongRight } from "react-icons/hi2";
+import { Link } from 'react-router-dom';
 
 
 function Step1() {
@@ -23,7 +24,7 @@ function Step1() {
                      <h5>Click all that apply</h5>
                 </div>
                 <div className='select'>
-                    <div className={`fweb ${isClicked ? 'clicked' : ''}`} onClick={handleClick}>
+                    <div className='fweb' >
                         <div className='left'>
                             <div className='webimg'>< BsWindow/></div>
                         </div>
@@ -47,8 +48,9 @@ function Step1() {
                     </div>
                 </div>
                 <div className='btn-btn'>
+                <Link to={'/step2'} className='nav' >
                     <button>Next step
-                        <div className='arrow'><HiArrowLongRight /></div></button>
+                        <div className='arrow'><HiArrowLongRight /></div></button> </Link>
                 </div>
             </div>
         </div>
