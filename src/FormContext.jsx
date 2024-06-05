@@ -1,4 +1,4 @@
-// src/FormContext.js
+
 import React, { createContext, useState } from 'react';
 
 const FormContext = createContext();
@@ -23,7 +23,11 @@ export const FormProvider = ({ children }) => {
         web: false,  
         post: false,
         bymail: false,
-        byphone: false
+        byphone: false,
+        mailby:'',
+        phoneNumber:'',
+        webSite:'',
+        postMail:''
     });
 
     const updateFormData = (newData) => {
