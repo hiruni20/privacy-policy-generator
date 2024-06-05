@@ -93,8 +93,8 @@ input[type="radio"] {
 
 
 input[type="radio"]:checked + label:before {
-    background-color: rgb(5, 99, 77);
-    border: 2px solid rgb(5, 99, 77); 
+   
+    border: 5px solid rgb(5, 99, 77); 
 }
 
 .rt{
@@ -110,6 +110,7 @@ input[type="radio"]:checked + label:before {
     border: 1px solid #abaaaa;
     border-radius: 8px;
     margin-bottom: 20px;
+    margin-top: 20px;
 }
 .input-data{
     margin-top: 1em;
@@ -129,7 +130,7 @@ input[type="radio"]:checked + label:before {
    margin-bottom: 0px;
    color: #303030;
    background-color: rgb(221, 248, 225);
-   border-bottom: 1px solid #303030 ;
+   
 }
 .data p{
     margin-left: 15px;
@@ -179,3 +180,4 @@ input[type="radio"]:checked + label:before {
     font-size: 25px;
     margin-top: 10px;
   }
+  

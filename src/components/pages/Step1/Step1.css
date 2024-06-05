@@ -85,13 +85,7 @@
   color: rgb(5, 171, 146) ;  
   transform: scale(1.1); 
 }
-.fweb:focus .webimg,
-.fweb:focus h4
- {
-    
-  color: rgb(5, 171, 146) ;  
-  transform: scale(1.1); 
-}
+
 
 .fweb:hover h5{
     transform: scale(1.1);
@@ -102,7 +96,7 @@
   transition: all 0.3s ease; 
 }
 .fweb.selected, .fapp.selected {
-  background-color: #e0f7fa; 
+  color: rgb(5, 171, 146);
   border: 2px solid rgb(5, 171, 146); 
 }
   .fapp{

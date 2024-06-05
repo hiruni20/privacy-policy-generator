@@ -108,10 +108,10 @@ function Step2() {
                                                 onChange={handleChange}
                                             />
                                             {errors.company && <p style={{ color: 'red' }}>{errors.company}</p>}
-                                            <p>e.g My Company LLC</p>
+                                            <p style={{marginLeft:'15px'}}>e.g My Company LLC</p>
                                         </div>
                                         <div className='data'>
-                                            <label htmlFor='address'><div className='label text' >What is the address of the business?</div></label>
+                                            <label htmlFor='address' style={{background:'none'}}><div className='label text' >What is the address of the business?</div></label>
                                             <input
                                                 className='input-data'
                                                 type="text"
@@ -121,7 +121,7 @@ function Step2() {
                                                 onChange={handleChange}
                                             />
                                             {errors.address && <p style={{ color: 'red' }}>{errors.address}</p>}
-                                            <p>e.g. 1 Cupertino, CA 95014</p>
+                                            <p style={{marginLeft:'15px'}}>e.g. 1 Cupertino, CA 95014</p>
                                         </div>
                                     </>
                                 )}
