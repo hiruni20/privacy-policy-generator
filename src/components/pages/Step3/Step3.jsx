@@ -18,7 +18,7 @@ function Step3() {
     };
 
     const handleNextStep = () => {
-        if (!formData.email && !formData.name && !formData.phone && !formData.address && !formData.social && !formData.other) {
+        if (!formData.email && !formData.name && !formData.phone && !formData.useraddress && !formData.social && !formData.other) {
             setError(true);
         } else {
             setError(false);
@@ -54,7 +54,7 @@ function Step3() {
                                     style={{ color: '#303030' }} 
                                 />
                                 <FormControlLabel 
-                                    control={<Checkbox checked={formData.address} onChange={handleChange} name="address" />} 
+                                    control={<Checkbox checked={formData.useraddress} onChange={handleChange} name="address" />} 
                                     label="Address, State, Province, ZIP/Postal code, City" 
                                     style={{ color: '#303030' }} 
                                 />

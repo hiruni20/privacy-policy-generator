@@ -1,4 +1,4 @@
-.maincontainer4 {
+.maincontainer {
     justify-content: center;
     align-items: center;
     width: 99%;
@@ -8,28 +8,28 @@
     
     
   }
-  .container4{
+  .container{
     width: 100%;
     height: auto;
     display: flex;
    justify-content: center;
     
   }
-  .formcon4{
+  .formcon{
     width: 50%;
     height: auto;
     align-items: center;
     padding-bottom: 2em;    
     
   }
-  .titles4{
+  .titles{
     color: rgb(59, 59, 59);
     line-height: 20px;
   }
   .titles h2{
     font-size: 32px;
   }
-  .formdata4{
+  .formdata{
     flex: 1;
     flex-direction: column;
     margin-right: 10px;
@@ -39,7 +39,7 @@
     color: black;
   }
   
-.formdata4-special{
+.formdata-special{
     flex: 1;
     margin-right: 10px;
     margin-top: 15px;

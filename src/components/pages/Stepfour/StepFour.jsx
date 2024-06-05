@@ -1,13 +1,13 @@
 import React, { useContext, useState } from 'react';
-import "./Step4.css"
+import './StepFour.css';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
 import { Link, useNavigate } from 'react-router-dom';
-import FormContext from '../../../FormContext.jsx';
+import FormContext from "../../../FormContext";
 
-function Step4() {
+function StepFour() {
     const { formData, updateFormData } = useContext(FormContext);
     const [error, setError] = useState(false);
     const navigate = useNavigate();
@@ -27,19 +27,19 @@ function Step4() {
     };
 
     return (
-        <div className='maincontainer4'>
-            <div className='formcon4'>
-                <div className='titles4'>
+        <div className='maincontainer'>
+            <div className='formcon'>
+                <div className='titles'>
                     <h2>Privacy Policy Generator</h2>
                 </div>
-                <div className='formc4'>
+                <div className='formc'>
                     <form>
-                        <div className='formdata4'>
+                        <div className='formdata'>
                             <label htmlFor="contactMethod" className='label' style={{ fontWeight: '600' }}>How do you collect personal information from users?</label>
                             <p>Click all that apply</p>
                             <FormGroup className='checkbox'>
                                 <FormControlLabel 
-                                    control={<Checkbox checked={formData.byemail} onChange={handleChange} name="email" />} 
+                                    control={<Checkbox checked={formData.byemail} onChange={handleChange} name="byemail" />} 
                                     label="By email" 
                                     style={{ color: '#303030' }} 
                                 />
@@ -49,7 +49,7 @@ function Step4() {
                                     style={{ color: '#303030' }} 
                                 />
                                 <FormControlLabel 
-                                    control={<Checkbox checked={formData.byphone} onChange={handleChange} name="phone" />} 
+                                    control={<Checkbox checked={formData.byphone} onChange={handleChange} name="byphone" />} 
                                     label="By phone number" 
                                     style={{ color: '#303030' }} 
                                 />
@@ -78,4 +78,4 @@ function Step4() {
     );
 }
 
-export default Step4;
+export default StepFour;

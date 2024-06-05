@@ -132,7 +132,7 @@ input[type="radio"]:checked + label:before {
    border-bottom: 1px solid #303030 ;
 }
 .data p{
-    margin-left: 10px;
+    margin-left: 15px;
     color: #abaaaa;
     
 }

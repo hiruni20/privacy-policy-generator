@@ -6,6 +6,8 @@ import Step1 from './components/pages/Step1/Step1'
 import Step2 from './components/pages/Step2/Step2'
 import Step3 from './components/pages/Step3/Step3'
 import { FormProvider } from './FormContext';
+import StepFour from './components/pages/Stepfour/StepFour'
+
 
 
 
@@ -19,6 +21,7 @@ function App() {
         <Route path='/step1' element={<Step1/>}/>
         <Route path='/step2' element={<Step2/>}/>
         <Route path='/step3' element={<Step3/>}/>
+        <Route path='/step4' element={<StepFour/>}/>
         </Routes>
       </Router>
       </FormProvider>
