@@ -1,34 +1,34 @@
-import React, { useState, useMemo } from 'react';
+import React, { useContext, useMemo, useState } from 'react';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import './Step2.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { BsArrowLeftShort } from "react-icons/bs";
-import { BsArrowRightShort } from "react-icons/bs";
+import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
+import FormContext from '../../../FormContext';
 
 function Step2() {
-    const [appName, setAppName] = useState('');
-    const [type, setType] = useState('');
-    const [company, setCompany] = useState('');
-    const [address, setAddress] = useState('');
-    const [country, setCountry] = useState(null);
+    const { formData, updateFormData } = useContext(FormContext);
     const options = useMemo(() => countryList().getData(), []);
-    const [state, setState] = useState('');
     const [errors, setErrors] = useState({});
     const navigate = useNavigate();
 
     const handleCountryChange = (selectedOption) => {
-        setCountry(selectedOption);
+        updateFormData({ country: selectedOption });
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        updateFormData({ [name]: value });
     };
 
     const validateForm = () => {
         const newErrors = {};
-        if (!appName) newErrors.appName = 'App name is required';
-        if (!type) newErrors.type = 'Entity type is required';
-        if (!country) newErrors.country = 'Country is required';
-        if (type === "I'm a Business") {
-            if (!company) newErrors.company = 'Company name is required';
-            if (!address) newErrors.address = 'Address is required';
+        if (!formData.appName) newErrors.appName = 'App name is required';
+        if (!formData.type) newErrors.type = 'Entity type is required';
+        if (!formData.country) newErrors.country = 'Country is required';
+        if (formData.type === "I'm a Business") {
+            if (!formData.company) newErrors.company = 'Company name is required';
+            if (!formData.address) newErrors.address = 'Address is required';
         }
         return newErrors;
     };
@@ -37,7 +37,6 @@ function Step2() {
         const newErrors = validateForm();
         if (Object.keys(newErrors).length === 0) {
             setErrors({});
-            
             navigate('/step3');
         } else {
             setErrors(newErrors);
@@ -60,8 +59,8 @@ function Step2() {
                                     type="text"
                                     placeholder='My App'
                                     name="appName"
-                                    value={appName}
-                                    onChange={(e) => setAppName(e.target.value)}
+                                    value={formData.appName}
+                                    onChange={handleChange}
                                 />
                                 {errors.appName && <p style={{ color: 'red' }}>{errors.appName}</p>}
                                 <p>e.g My App</p>
@@ -74,8 +73,8 @@ function Step2() {
                                         id="business"
                                         name="type"
                                         value="I'm a Business"
-                                        onChange={e => setType(e.target.value)}
-                                        checked={type === "I'm a Business"}
+                                        onChange={handleChange}
+                                        checked={formData.type === "I'm a Business"}
                                         className='radiob'
                                     />
                                     <label htmlFor="business" className='rt'>I'm a Business</label>
@@ -89,14 +88,14 @@ function Step2() {
                                         id="individual"
                                         name="type"
                                         value="I'm an Individual"
-                                        onChange={e => setType(e.target.value)}
-                                        checked={type === "I'm an Individual"}
+                                        onChange={handleChange}
+                                        checked={formData.type === "I'm an Individual"}
                                         className='radiob'
                                     />
                                     <label htmlFor="individual" className='rt'>I'm an Individual</label>
                                 </div>
                                 {errors.type && <p style={{ color: 'red' }}>{errors.type}</p>}
-                                {type === "I'm a Business" && (
+                                {formData.type === "I'm a Business" && (
                                     <>
                                         <div className='data'>
                                             <label htmlFor='company'><div className='label text'>What is the name of the business?</div></label>
@@ -105,8 +104,8 @@ function Step2() {
                                                 type="text"
                                                 placeholder='My Company LLC'
                                                 name="company"
-                                                value={company}
-                                                onChange={(e) => setCompany(e.target.value)}
+                                                value={formData.company}
+                                                onChange={handleChange}
                                             />
                                             {errors.company && <p style={{ color: 'red' }}>{errors.company}</p>}
                                             <p>e.g My Company LLC</p>
@@ -118,8 +117,8 @@ function Step2() {
                                                 type="text"
                                                 placeholder='Cupertino, CA 95014'
                                                 name="address"
-                                                value={address}
-                                                onChange={(e) => setAddress(e.target.value)}
+                                                value={formData.address}
+                                                onChange={handleChange}
                                             />
                                             {errors.address && <p style={{ color: 'red' }}>{errors.address}</p>}
                                             <p>e.g. 1 Cupertino, CA 95014</p>
@@ -131,7 +130,7 @@ function Step2() {
                                 <label htmlFor="country" className='label' style={{ fontWeight: '600', marginBottom: '15px' }}>Enter the country</label>
                                 <Select
                                     options={options}
-                                    value={country}
+                                    value={formData.country}
                                     onChange={handleCountryChange}
                                     placeholder="Select Country"
                                 />
@@ -144,8 +143,8 @@ function Step2() {
                                     type="text"
                                     placeholder='State'
                                     name="state"
-                                    value={state}
-                                    onChange={(e) => setState(e.target.value)}
+                                    value={formData.state}
+                                    onChange={handleChange}
                                 />
                             </div>
                         </form>

@@ -5,12 +5,13 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom'
 import Step1 from './components/pages/Step1/Step1'
 import Step2 from './components/pages/Step2/Step2'
 import Step3 from './components/pages/Step3/Step3'
+import { FormProvider } from './FormContext';
 
 
 
 function App() {
   return (
-    <>
+    <FormProvider>
       <Router>
         <Navbar/>
         
@@ -20,7 +21,7 @@ function App() {
         <Route path='/step3' element={<Step3/>}/>
         </Routes>
       </Router>
-    </>
+      </FormProvider>
   )
 }
 
