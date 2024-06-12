@@ -201,9 +201,12 @@ function Template() {
               <p>If you have any questions about this Privacy Policy, You can contact us:</p>
               <div className='list'>
                 <ul>
-                  <li>By email:{formData.bymail} </li>
+                    {formData.byemail && <li>By email: {formData.emailby}</li>}
+                    {formData.byphone && <li>By phone number: {formData.phoneNumber}</li>}
+                    {formData.web && <li>By visiting a page on our website: {formData.website}</li>}
+                    {formData.post && <li>By sending post mail: {formData.postAddress}</li>}
                 </ul>
-              </div>
+            </div>
             </div>
           </div>
         </div>
