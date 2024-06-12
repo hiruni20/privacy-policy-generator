@@ -29,6 +29,7 @@ export const FormProvider = ({ children }) => {
         webSite:'',
         postMail:'',
         sendEmail: '',
+        generatedDate: null,
     });
 
     const updateFormData = (newData) => {

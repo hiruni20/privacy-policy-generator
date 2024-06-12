@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react';
 import './Template.css'
+import FormContext from '../../FormContext'
 
 function Template() {
+  const { formData } = useContext(FormContext);
+
   return (
     <div className='maincontainer'>
       <div className='paperh'>
         <div className='header'>
-          <h3>Privacy Policy for </h3>
+          <h3>Privacy Policy for {formData.appName} </h3>
         </div>
 
         <div className='paper'>
@@ -18,7 +21,7 @@ function Template() {
           </div>
           <div className='content'>
             <div className='cphara'>
-              <p>Last updated: June 02, 2024</p>
+              <p>Last updated: {formData.generatedDate}</p>
               <p>This Privacy Policy describes Our policies and procedures on the collection,
                 use and disclosure of Your information when You use the Service and tells You about Your privacy rights and how the law protects You.</p>
 
@@ -43,8 +46,8 @@ function Template() {
                   <li><strong>Account</strong>means a unique account created for You to access our Service or parts of our Service.</li>
                   <li><strong>Affiliate</strong> means an entity that controls, is controlled by or is under common control with a party,
                     where "control" means ownership of 50% or more of the shares, equity interest or other securities entitled to vote for election of directors or other managing authority.</li>
-                  <li><strong>Application</strong> refers to VoiceEase, the software program provided by the Company.</li>
-                  <li><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to VoiceEase.</li>
+                  <li><strong>Application</strong> refers to {formData.appName}, the software program provided by the Company.</li>
+                  <li><strong>Company</strong> (referred to as either "the Company", "We", "Us" or "Our" in this Agreement) refers to {formData.appName}.</li>
                   <li><strong>Country</strong> refers to: Sri Lanka</li>
                   <li><strong>Device</strong> means any device that can access the Service such as a computer, a cellphone or a digital tablet.</li>
                   <li><strong>Personal</strong> Data is any information that relates to an identified or identifiable individual.</li>
@@ -81,7 +84,6 @@ function Template() {
                 unique device identifiers and other diagnostic data.</p>
               <p>When You access the Service by or through a mobile device, We may collect certain information automatically, including, but not limited to, the type of mobile device You use, Your mobile device unique ID, the IP address of Your mobile device, Your mobile operating system, the type of mobile Internet browser You use,
                 unique device identifiers and other diagnostic data.</p>
-              <p>We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p>
               <p>We may also collect information that Your browser sends whenever You visit our Service or when You access the Service by or through a mobile device.</p>
               <div className='ctitle'>
                 <h4>Use of Your Personal Data</h4>
@@ -199,7 +201,7 @@ function Template() {
               <p>If you have any questions about this Privacy Policy, You can contact us:</p>
               <div className='list'>
                 <ul>
-                  <li>By email: </li>
+                  <li>By email:{formData.bymail} </li>
                 </ul>
               </div>
             </div>

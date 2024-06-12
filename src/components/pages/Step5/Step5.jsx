@@ -7,7 +7,11 @@ import { Link } from 'react-router-dom';
 
 function Step5() {
   const { formData, updateFormData } = useContext(FormContext);
-
+  const handleGenerate = () => {
+    const currentDate = new Date().toISOString().split('T')[0];
+    updateFormData({ generatedDate: currentDate });
+    
+  };
   return (
     <div className='maincontainer'>
       <div className='formcon'>
@@ -35,7 +39,7 @@ function Step5() {
                 <div className='arrow1'><BsArrowLeftShort /></div>Go Back
               </button>
             </Link>
-            <button > 
+            <button onClick={handleGenerate}> 
               <div className='download'><RiDownload2Fill/>  </div>
               Generate
             </button>
