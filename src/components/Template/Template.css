@@ -1,0 +1,45 @@
+.maincontainer{
+    width: 97%;
+    height: auto;
+    position: absolute;
+    color: black;
+
+}
+.paper{
+    width: 100%;
+    height: auto;
+    padding: 1em 15em 1em 15em;
+}
+.paperh {
+    width: 100%;
+    
+}
+.header{
+    border-bottom:0.5px solid rgba(228, 226, 226, 0.782) ;
+    padding-left: 2rem;
+}
+.header h3{
+    font-size: 28px;
+    padding-left: 7em;
+}
+.subh h1 {
+    font-size: 52px;
+}
+.content{
+    width: 100%;
+}
+.cphara p{
+    font-size: 17px;
+    text-align: justify;
+}
+.ctitle h2{
+    font-size: 28px;
+}
+.ctitle h4{
+    font-size: 22px;
+}
+.list li{
+    line-height: 35px;
+    text-align: justify;
+    font-size: 17px;
+}

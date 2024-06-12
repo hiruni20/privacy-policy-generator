@@ -27,7 +27,8 @@ export const FormProvider = ({ children }) => {
         mailby:'',
         phoneNumber:'',
         webSite:'',
-        postMail:''
+        postMail:'',
+        sendEmail: '',
     });
 
     const updateFormData = (newData) => {

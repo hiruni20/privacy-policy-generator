@@ -12,14 +12,17 @@ function StepFour() {
     const [error, setError] = useState(false);
     const [validationError, setValidationError] = useState({
         emailby: '',
-        phoneNumber: ''
+        phoneNumber: '',
+        website: '',
+        postAddress: ''
     });
     const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
         updateFormData({ [name]: type === 'checkbox' ? checked : value });
-        setValidationError({ ...validationError, [name]: '' });  
+        setValidationError({ ...validationError, [name]: '' });
+        setError(false); // reset the error 
     };
 
     const validateEmail = (email) => {
@@ -32,9 +35,19 @@ function StepFour() {
         return re.test(String(phone));
     };
 
+    const validateWebsite = (url) => {
+        const re = /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w .-]*)*\/?$/;
+        return re.test(String(url).toLowerCase());
+    };
+
     const handleNextStep = () => {
         let isValid = true;
-        const newValidationError = { emailby: '', phoneNumber: '' };
+        const newValidationError = { emailby: '', phoneNumber: '', website: '', postAddress: '' };
+
+        if (!formData.byemail && !formData.byphone && !formData.web && !formData.post) {
+            setError(true);
+            return;
+        }
 
         if (formData.byemail && !validateEmail(formData.emailby)) {
             newValidationError.emailby = 'Please enter a valid email address.';
@@ -46,15 +59,19 @@ function StepFour() {
             isValid = false;
         }
 
+        if (formData.web && !validateWebsite(formData.website)) {
+            newValidationError.website = 'Please enter a valid website URL.';
+            isValid = false;
+        }
+
+        if (formData.post && !formData.postAddress) {
+            newValidationError.postAddress = 'Please enter a valid post mail address.';
+            isValid = false;
+        }
+
         setValidationError(newValidationError);
 
-        if (
-            isValid &&
-            (!formData.byemail || formData.emailby) &&
-            (!formData.web || formData.website) &&
-            (!formData.byphone || formData.phoneNumber) &&
-            (!formData.post || formData.postAddress)
-        ) {
+        if (isValid) {
             setError(false);
             navigate('/step5');
         } else {
@@ -102,13 +119,14 @@ function StepFour() {
                                     <div className='data4'>
                                         <label htmlFor='website'><div className='label text'>What's the website URL?</div></label>
                                         <input
-                                            className='input-data'
+                                            className='input-data4'
                                             type="text"
                                             placeholder='https://www.mywebsite.com'
                                             name="website"
                                             value={formData.website || ''}
                                             onChange={handleChange}
                                         />
+                                        {validationError.website && <p style={{ color: 'red' }}>{validationError.website}</p>}
                                     </div>
                                 )}
                                 <FormControlLabel 
@@ -146,12 +164,15 @@ function StepFour() {
                                             value={formData.postAddress || ''}
                                             onChange={handleChange}
                                         />
+                                        {validationError.postAddress && <p style={{ color: 'red' }}>{validationError.postAddress}</p>}
                                     </div>
                                 )}
                             </FormGroup>
-                            {error && <p style={{ color: 'red' }}>Please fill out the required fields for the selected options.</p>}
+                            {error && <p style={{ color: 'red' }}>Please select at least one option.</p>}
                         </div>
+                        
                     </form>
+                    
                     <div className='btn-btn2'>
                         <Link to={'/step3'} className='nav'>
                             <button style={{ backgroundColor: '#fff', color: '#303030' }}>
