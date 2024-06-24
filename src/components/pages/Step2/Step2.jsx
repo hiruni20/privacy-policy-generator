@@ -10,10 +10,12 @@ function Step2() {
     const { formData, updateFormData } = useContext(FormContext);
     const options = useMemo(() => countryList().getData(), []);
     const [errors, setErrors] = useState({});
+    const [country, setCountry] = useState(null);
     const navigate = useNavigate();
 
     const handleCountryChange = (selectedOption) => {
         //add country label to form data
+        setCountry(selectedOption);
         updateFormData({ country: selectedOption.label });
     };
 
@@ -131,7 +133,7 @@ function Step2() {
                                 <label htmlFor="country" className='label' style={{ fontWeight: '600', marginBottom: '15px' }}>Enter the country</label>
                                 <Select
                                     options={options}
-                                    value={formData.country}
+                                    value={country}
                                     onChange={handleCountryChange}
                                     placeholder="Select Country"
                                 />
