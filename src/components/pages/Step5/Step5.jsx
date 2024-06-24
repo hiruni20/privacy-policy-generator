@@ -3,13 +3,16 @@ import './Step5.css';
 import { RiDownload2Fill } from "react-icons/ri";
 import FormContext from '../../../FormContext';
 import { BsArrowLeftShort, BsArrowRightShort } from "react-icons/bs";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate  } from 'react-router-dom';
 
 function Step5() {
   const { formData, updateFormData } = useContext(FormContext);
+  const navigate = useNavigate();
+
   const handleGenerate = () => {
     const currentDate = new Date().toISOString().split('T')[0];
     updateFormData({ generatedDate: currentDate });
+    navigate('/privacy-policy');
     
   };
   return (
@@ -49,5 +52,4 @@ function Step5() {
     </div>
   );
 }
-
 export default Step5;

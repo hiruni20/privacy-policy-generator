@@ -31,7 +31,7 @@ function StepFour() {
     };
 
     const validatePhoneNumber = (phone) => {
-        const re = /^\+?[1-9]\d{1,14}$/;
+        const re = /^(\+?[0-9]{1,15}|\d{10,15})$/;
         return re.test(String(phone));
     };
 
@@ -92,7 +92,7 @@ function StepFour() {
                             <p>Click all that apply</p>
                             <FormGroup className='checkbox'>
                                 <FormControlLabel 
-                                    control={<Checkbox checked={formData.byemail} onChange={handleChange} name="byemail" />} 
+                                    control={<Checkbox checked={!!formData.byemail} onChange={handleChange} name="byemail" />} 
                                     label="By email" 
                                     style={{ color: '#303030' }} 
                                 />
@@ -111,7 +111,7 @@ function StepFour() {
                                     </div>
                                 )}
                                 <FormControlLabel 
-                                    control={<Checkbox checked={formData.web} onChange={handleChange} name="web" />} 
+                                    control={<Checkbox checked={!!formData.web} onChange={handleChange} name="web" />} 
                                     label="By visiting a page on our website" 
                                     style={{ color: '#303030' }} 
                                 />
@@ -130,7 +130,7 @@ function StepFour() {
                                     </div>
                                 )}
                                 <FormControlLabel 
-                                    control={<Checkbox checked={formData.byphone} onChange={handleChange} name="byphone" />} 
+                                    control={<Checkbox checked={!!formData.byphone} onChange={handleChange} name="byphone" />} 
                                     label="By phone number" 
                                     style={{ color: '#303030' }} 
                                 />
@@ -149,7 +149,7 @@ function StepFour() {
                                     </div>
                                 )}
                                 <FormControlLabel 
-                                    control={<Checkbox checked={formData.post} onChange={handleChange} name="post" />} 
+                                    control={<Checkbox checked={!!formData.post} onChange={handleChange} name="post" />} 
                                     label="By sending post mail" 
                                     style={{ color: '#303030' }} 
                                 />

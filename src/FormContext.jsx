@@ -30,6 +30,7 @@ export const FormProvider = ({ children }) => {
         postMail:'',
         sendEmail: '',
         generatedDate: null,
+        
     });
 
     const updateFormData = (newData) => {

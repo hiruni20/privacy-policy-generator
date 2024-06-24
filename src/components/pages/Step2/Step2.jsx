@@ -19,7 +19,7 @@ function Step2() {
     const handleChange = (e) => {
         const { name, value } = e.target;
         updateFormData({ [name]: value });
-    };
+      };
 
     const validateForm = () => {
         const newErrors = {};
