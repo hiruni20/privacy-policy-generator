@@ -13,7 +13,8 @@ function Step2() {
     const navigate = useNavigate();
 
     const handleCountryChange = (selectedOption) => {
-        updateFormData({ country: selectedOption });
+        //add country label to form data
+        updateFormData({ country: selectedOption.label });
     };
 
     const handleChange = (e) => {
